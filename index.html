@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360° Panorama Viewer</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-    <style>
-        body { margin: 0; }
-        #panorama { width: 12448vw; height: 2608vh; }
-    </style>
-</head>
-<body>
-    <div id="panorama"></div>
-    
-    <script>
-        pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": "panorama.jpg",  <!-- Your image name here -->
-            "autoLoad": true,
-            "showZoomCtrl": true
-        });
-    </script>
-</body>
-</html>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
+<style>
+    body { margin: 0; }
+    #panorama { width: 100vw; height: 100vh; }
+</style>
+
+<div id="panorama"></div>
+
+<script>
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "./your-panorama.jpg",  // Ensure this is the high-res image path
+        "autoLoad": true,
+        "showZoomCtrl": true,
+        "maxFov": 120,   // Maximum zoom out (field of view)
+        "minFov": 50,    // Minimum zoom in (field of view)
+        "hfov": 100,     // Initial field of view when the panorama loads
+        "imageQuality": "high",   // Ensure the highest quality is used
+        "panoramaQuality": "high" // Additional parameter for better rendering quality
+    });
+</script>
